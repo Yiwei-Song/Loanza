@@ -1,4 +1,4 @@
-/* ─────────────────────────── modal ─────────────────────────── */
+/* ——————————————————————————— modal ——————————————————————————— */
 
 .modal-backdrop {
   position: fixed;
@@ -39,7 +39,7 @@
   }
 }
 
-/* ─────────────────────────── toasts ─────────────────────────── */
+/* ——————————————————————————— toasts ——————————————————————————— */
 
 .toast-host {
   position: fixed;
@@ -86,7 +86,7 @@
   }
 }
 
-/* ─────────────────────────── skeleton ─────────────────────────── */
+/* ——————————————————————————— skeleton ——————————————————————————— */
 
 .skeleton {
   display: block;
@@ -110,7 +110,7 @@
   }
 }
 
-/* ─────────────────────────── empty state ─────────────────────────── */
+/* ——————————————————————————— empty state ——————————————————————————— */
 
 .empty-state {
   display: flex;
@@ -123,15 +123,15 @@
 }
 
 .empty-ring {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+  width: 68px;
+  height: 68px;
+  border-radius: var(--r);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--violet-deep);
   background: var(--violet-ghost);
-  border: 1px dashed rgba(131, 124, 242, 0.45);
+  border: 1px dashed rgba(111, 107, 180, 0.4);
   margin-bottom: 18px;
 }
 
@@ -149,7 +149,7 @@
   margin-top: 20px;
 }
 
-/* ─────────────────────────── progress ring ─────────────────────────── */
+/* ——————————————————————————— progress ring ——————————————————————————— */
 
 .progress-ring-fg {
   transition: stroke-dashoffset 0.8s var(--ease-out);
@@ -162,12 +162,14 @@
   letter-spacing: var(--track-snug);
 }
 
-/* ─────────────────────────── segmented ─────────────────────────── */
+/* ——————————————————————————— segmented ——————————————————————————— */
 
+/* Loanza tab group: quiet text tabs, active = ink block */
 .segmented {
   display: inline-flex;
-  background: #eceaee;
-  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--line-card);
+  border-radius: var(--r);
   padding: 3px;
   gap: 2px;
 }
@@ -177,9 +179,9 @@
   align-items: center;
   gap: 6px;
   padding: 7px 14px;
-  border-radius: 11px;
-  font-size: 13px;
-  font-weight: 600;
+  border-radius: var(--r-sm);
+  font-size: 12.5px;
+  font-weight: 500;
   color: var(--ink-3);
   transition: all var(--t-fast) var(--ease-out);
 }
@@ -189,25 +191,25 @@
 }
 
 .segmented-btn.active {
-  background: var(--surface);
-  color: var(--ink);
-  box-shadow: var(--shadow-xs);
+  background: var(--ink);
+  color: #fff;
 }
 
 .segmented-sm .segmented-btn {
   padding: 5px 12px;
-  font-size: 12.5px;
+  font-size: 12px;
 }
 
-/* ─────────────────────────── switch ─────────────────────────── */
+/* ——————————————————————————— switch ——————————————————————————— */
 
+/* squared toggle —no iOS pill */
 .switch {
   position: relative;
-  width: 40px;
-  height: 23px;
+  width: 38px;
+  height: 22px;
   flex-shrink: 0;
-  border-radius: var(--r-pill);
-  background: #d9d7de;
+  border-radius: var(--r-sm);
+  background: #d6d4dd;
   transition: background var(--t-fast) var(--ease-out);
 }
 
@@ -222,21 +224,21 @@
 
 .switch-knob {
   position: absolute;
-  top: 2.5px;
-  left: 2.5px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
   background: #fff;
   box-shadow: var(--shadow-xs);
   transition: transform var(--t-fast) var(--ease-spring);
 }
 
 .switch.on .switch-knob {
-  transform: translateX(17px);
+  transform: translateX(16px);
 }
 
-/* ─────────────────────────── dual range ─────────────────────────── */
+/* ——————————————————————————— dual range ——————————————————————————— */
 
 .dual-range {
   padding: 8px 8px 0;
@@ -291,7 +293,7 @@
   color: var(--ink-3);
 }
 
-/* ─────────────────────────── country select ─────────────────────────── */
+/* ——————————————————————————— country select ——————————————————————————— */
 
 .country-select {
   position: relative;
@@ -313,7 +315,7 @@
 
 .country-select-box:focus-within {
   border-color: var(--violet);
-  box-shadow: 0 0 0 3px rgba(131, 124, 242, 0.18);
+  box-shadow: 0 0 0 3px rgba(161, 156, 221, 0.18);
 }
 
 .country-select-box input {
@@ -370,7 +372,7 @@
   letter-spacing: 0.06em;
 }
 
-/* ─────────────────────────── fields ─────────────────────────── */
+/* ——————————————————————————— fields ——————————————————————————— */
 
 .field {
   display: block;
@@ -400,7 +402,7 @@
   font-weight: 500;
 }
 
-/* ─────────────────────────── tick charts ─────────────────────────── */
+/* ——————————————————————————— tick charts ——————————————————————————— */
 
 .tickbar {
   width: 100%;
@@ -453,7 +455,7 @@
   color: var(--muted);
 }
 
-/* ─────────────────────────── logo ─────────────────────────── */
+/* ——————————————————————————— logo ——————————————————————————— */
 
 .logo-mark {
   color: var(--ink);

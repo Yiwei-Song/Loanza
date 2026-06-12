@@ -1,58 +1,59 @@
 /* ───────────────────────────────────────────────
    Circle Breaker — design tokens
-   Loanza suite: porcelain ground, lavender field,
-   compact white panels, ink pills, tick-chart DNA,
-   colour confined to micro-charts and tiny markers
+   Loanza suite: grey-lavender ground, matte glass
+   panels, near-square corners at ONE radius, ink
+   type, dusty desaturated accents, tick-chart DNA
    ─────────────────────────────────────────────── */
 
 :root {
-  /* surfaces */
-  --bg: #f1f0ee;
-  --bg-soft: #f6f5f3;
-  --surface: #ffffff;
-  --surface-tint: #f5f4f6;
-  --surface-dim: #f4f3f8; /* workspace field the white cards sit on */
-  --lavender: #e2dff2;
-  --lavender-soft: #ecebf7;
-  --glass: rgba(255, 255, 255, 0.62);
+  /* surfaces — matte, never pure-white plastic */
+  --bg: #edecf1;
+  --bg-soft: #f2f1f5;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-solid: #fbfbfc;
+  --surface-tint: rgba(244, 243, 248, 0.85);
+  --surface-dim: rgba(238, 237, 244, 0.6);
+  --glass: rgba(252, 252, 254, 0.66);
+  --glass-strong: rgba(255, 255, 255, 0.82);
 
   /* ink scale */
-  --ink: #1b1a1e;
-  --ink-2: #4c4a52;
-  --ink-3: #757379;
-  --muted: #9c9aa3;
-  --faint: #b8b6bf;
+  --ink: #1d1c21;
+  --ink-2: #4d4b53;
+  --ink-3: #76747c;
+  --muted: #9d9ba4;
+  --faint: #b9b7c0;
 
-  /* brand accents — used sparingly: ticks, dots, deltas */
-  --violet: #948cf0;
-  --violet-deep: #6f67dd;
-  --violet-soft: #efedfa;
-  --violet-ghost: #f5f4fc;
-  --green: #67b582;
-  --green-deep: #44915f;
-  --green-soft: #e9f4ec;
-  --orange: #ee7445;
-  --orange-deep: #d85b2b;
-  --orange-soft: #fceee6;
-  --gold: #f0c93e;
-  --gold-soft: #faf3da;
+  /* accents — dusty, desaturated; ticks/dots/deltas only */
+  --violet: #a19cdd;
+  --violet-deep: #6f6bb4;
+  --violet-soft: #ecebf5;
+  --violet-ghost: #f2f1f8;
+  --green: #85b894;
+  --green-deep: #58906c;
+  --green-soft: #e9f0eb;
+  --orange: #e08552;
+  --orange-deep: #c2693c;
+  --orange-soft: #f7ece5;
+  --gold: #ddbe62;
+  --gold-soft: #f6f0dd;
 
-  /* lines & shadows — separation by field contrast, not shadow */
-  --line: rgba(27, 26, 30, 0.05);
-  --line-card: #edecf2;
-  --line-strong: rgba(27, 26, 30, 0.1);
-  --shadow-xs: 0 1px 2px rgba(27, 26, 30, 0.02);
-  --shadow-sm: 0 3px 12px -5px rgba(27, 26, 30, 0.06);
-  --shadow-md: 0 12px 32px -18px rgba(27, 26, 30, 0.14);
-  --shadow-lg: 0 26px 64px -28px rgba(50, 44, 90, 0.22);
-  --shadow-pop: 0 18px 44px -14px rgba(50, 44, 90, 0.18);
+  /* lines & shadows — separation by field contrast */
+  --line: rgba(60, 56, 84, 0.05);
+  --line-card: rgba(60, 56, 84, 0.08);
+  --line-strong: rgba(60, 56, 84, 0.13);
+  --shadow-xs: 0 1px 2px rgba(40, 36, 60, 0.03);
+  --shadow-sm: 0 3px 10px -4px rgba(40, 36, 60, 0.06);
+  --shadow-md: 0 10px 28px -16px rgba(40, 36, 60, 0.12);
+  --shadow-lg: 0 22px 56px -26px rgba(48, 42, 84, 0.2);
+  --shadow-pop: 0 16px 38px -14px rgba(48, 42, 84, 0.16);
 
-  /* radii — Loanza: moderate cards, pill controls */
-  --r-sm: 9px;
-  --r-md: 12px;
-  --r-lg: 16px;
-  --r-xl: 20px;
-  --r-pill: 999px;
+  /* radii — ONE radius, regardless of element size */
+  --r: 10px;
+  --r-sm: 7px; /* tiny chips, deltas, checkboxes only */
+  --r-md: var(--r);
+  --r-lg: var(--r);
+  --r-xl: var(--r);
+  --r-pill: var(--r); /* legacy alias — pills are banned */
 
   /* type */
   --font-sans: 'Poppins', 'Noto Sans SC Variable', 'PingFang SC', 'Microsoft YaHei',
@@ -60,17 +61,17 @@
   --track-tight: -0.015em;
   --track-snug: -0.005em;
 
-  /* layout */
-  --page-max: 1200px;
-  --page-pad: clamp(18px, 4vw, 40px);
+  /* layout — wide and airy at the macro level */
+  --page-max: 1320px;
+  --page-pad: clamp(20px, 4vw, 48px);
   --nav-h: 64px;
 
   /* map */
-  --map-dot: #d6d3e3;
-  --map-dot-strong: #c8c4da;
+  --map-dot: #d2cfdd;
+  --map-dot-strong: #c5c1d4;
 
   /* tick charts */
-  --tick-rest: #e7e5ef;
+  --tick-rest: #e2e0e9;
 
   /* motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

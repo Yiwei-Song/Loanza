@@ -6,7 +6,7 @@ import { PROGRAM_TYPES } from '../data/vocab';
 import { isClosingSoon, isOpen } from '../lib/dates';
 import { lensPasses } from '../lib/eligibility';
 import { useApp } from '../state/store';
-import { BrowserFrame, CountUp, Delta, Icon, Logo, Reveal, TickBar } from '../components/ui';
+import { CountUp, Delta, Icon, Logo, Reveal, TickBar } from '../components/ui';
 import { MAP_H, MAP_W, MAP_Y0, projectMap, WorldDots } from '../components/mapview';
 import { DeadlineChip } from '../components/opportunity';
 
@@ -109,14 +109,13 @@ export default function LandingPage() {
         {/* ── the workspace mockup ── */}
         <Reveal delay={260} className="hero-map-reveal">
           <div className="hero-mock-wrap">
-            <BrowserFrame url="circlebreaker.club/opportunities">
+            <div className="stage">
               <div className="ws">
                 <div className="ws-head">
-                  <span className="ws-brand">
-                    <Logo size={20} />
-                    <strong>{t('common.appName')}</strong>
+                  <span className="ws-headline">
+                    <strong>{t('db.title')}</strong>
+                    <small>{t('landing.map.caption', { n: cityCount })}</small>
                   </span>
-                  <span className="ws-title">{t('db.title')}</span>
                   <span className="ws-head-right">
                     <span className="ws-pill">
                       {lang === 'zh' ? '本月' : 'This Month'}
@@ -162,7 +161,7 @@ export default function LandingPage() {
                     ))}
                     <div className="hero-map-caption">
                       <span className="live-dot" />
-                      {t('landing.map.caption', { n: cityCount })}
+                      {t('common.openNow')}
                     </div>
                   </div>
 
@@ -229,7 +228,7 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
-            </BrowserFrame>
+            </div>
 
             {floatCards.map((o, i) => (
               <Link key={o.id} to={`/opportunities/${o.slug}`} className={`hero-float glass-card hero-float-${i}`}>

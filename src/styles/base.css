@@ -1,4 +1,4 @@
-/* ─────────────────────────── reset & base ─────────────────────────── */
+/* ——————————————————————————— reset & base ——————————————————————————— */
 
 *,
 *::before,
@@ -21,9 +21,9 @@ body {
   line-height: 1.6;
   color: var(--ink);
   background:
-    radial-gradient(1200px 680px at 78% -12%, rgba(186, 178, 240, 0.44) 0%, transparent 62%),
-    radial-gradient(1000px 560px at -8% 6%, rgba(200, 193, 240, 0.3) 0%, transparent 55%),
-    radial-gradient(900px 540px at 55% 115%, rgba(200, 193, 240, 0.22) 0%, transparent 60%),
+    radial-gradient(1300px 700px at 76% -14%, rgba(168, 162, 210, 0.34) 0%, transparent 62%),
+    radial-gradient(1000px 560px at -8% 6%, rgba(176, 170, 212, 0.22) 0%, transparent 55%),
+    radial-gradient(900px 540px at 55% 115%, rgba(176, 170, 212, 0.18) 0%, transparent 60%),
     var(--bg);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
@@ -72,7 +72,7 @@ strong {
 }
 
 ::selection {
-  background: rgba(141, 133, 240, 0.25);
+  background: rgba(161, 156, 221, 0.25);
 }
 
 :focus-visible {
@@ -81,7 +81,7 @@ strong {
   border-radius: 4px;
 }
 
-/* ─────────────────────────── utilities ─────────────────────────── */
+/* ——————————————————————————— utilities ——————————————————————————— */
 
 .row {
   display: flex;
@@ -105,7 +105,7 @@ strong {
   color: #aaa5c8;
 }
 
-/* ─────────────────────────── page scaffolding ─────────────────────────── */
+/* ——————————————————————————— page scaffolding ——————————————————————————— */
 
 .page {
   max-width: var(--page-max);
@@ -132,7 +132,7 @@ strong {
 .section {
   max-width: var(--page-max);
   margin: 0 auto;
-  padding: clamp(44px, 7vw, 96px) var(--page-pad) 0;
+  padding: clamp(64px, 9vw, 128px) var(--page-pad) 0;
 }
 
 .section-title {
@@ -147,7 +147,7 @@ strong {
   font-size: 14.5px;
 }
 
-/* Loanza kicker: small dot + quiet label, optionally in a white pill */
+/* Loanza kicker: small dot + quiet label — never boxed in a pill */
 
 .kicker {
   display: inline-flex;
@@ -156,10 +156,6 @@ strong {
   font-size: 12.5px;
   font-weight: 500;
   color: var(--ink-3);
-  background: var(--surface);
-  padding: 7px 15px 7px 12px;
-  border-radius: var(--r-pill);
-  box-shadow: var(--shadow-xs);
 }
 
 .kicker::before {
@@ -172,9 +168,7 @@ strong {
 }
 
 .kicker-plain {
-  background: none;
-  padding: 0;
-  box-shadow: none;
+  /* legacy alias —all kickers are plain now */
 }
 
 .kicker-orange {
@@ -189,7 +183,7 @@ strong {
   --kicker-dot: var(--gold);
 }
 
-/* ─────────────────────────── buttons ─────────────────────────── */
+/* ——————————————————————————— buttons ——————————————————————————— */
 
 .btn {
   display: inline-flex;
@@ -228,8 +222,8 @@ strong {
 }
 
 .btn-outline {
-  border-color: #e3e2e6;
-  background: var(--surface);
+  border-color: rgba(60, 56, 84, 0.1);
+  background: #fff;
   color: var(--ink);
 }
 
@@ -250,7 +244,7 @@ strong {
 .btn-danger {
   background: var(--orange-soft);
   color: var(--orange-deep);
-  border-color: rgba(216, 91, 43, 0.22);
+  border-color: rgba(194, 105, 60, 0.22);
 }
 
 .btn-danger:hover {
@@ -328,9 +322,9 @@ strong {
   justify-content: center;
   width: 28px;
   height: 28px;
-  border-radius: 9px;
+  border-radius: var(--r-sm);
   border: 1px solid var(--line-card);
-  background: var(--surface);
+  background: #fff;
   color: var(--ink);
   flex-shrink: 0;
   transition: all var(--t-fast) var(--ease-out);
@@ -343,7 +337,7 @@ strong {
   transform: translateY(-1px);
 }
 
-/* ─────────────────────────── chips ─────────────────────────── */
+/* ——————————————————————————— chips ——————————————————————————— */
 
 .chip {
   display: inline-flex;
@@ -352,14 +346,14 @@ strong {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0;
-  padding: 4px 10px;
-  border-radius: var(--r-pill);
+  padding: 4px 9px;
+  border-radius: var(--r-sm);
   white-space: nowrap;
   background: var(--surface-tint);
   color: var(--ink-2);
 }
 
-/* Loanza keeps colour out of chip fills — neutral wash + tiny violet dot */
+/* Loanza keeps colour out of chip fills —neutral wash + tiny violet dot */
 .chip-violet {
   background: #f3f2f6;
   color: var(--ink-2);
@@ -442,7 +436,7 @@ strong {
 
 .chip-filter {
   background: var(--violet-ghost);
-  border: 1px solid rgba(141, 133, 240, 0.3);
+  border: 1px solid rgba(161, 156, 221, 0.3);
   color: var(--violet-deep);
 }
 
@@ -452,7 +446,7 @@ strong {
   gap: 8px;
 }
 
-/* tiny delta chip: ▲ +0.114 */
+/* tiny delta chip: —+0.114 */
 
 .delta {
   display: inline-flex;
@@ -479,7 +473,7 @@ strong {
   color: var(--orange-deep);
 }
 
-/* ─────────────────────────── inputs ─────────────────────────── */
+/* ——————————————————————————— inputs ——————————————————————————— */
 
 .input,
 .select {
@@ -496,7 +490,7 @@ strong {
 .select:focus {
   outline: none;
   border-color: var(--violet);
-  box-shadow: 0 0 0 3px rgba(141, 133, 240, 0.16);
+  box-shadow: 0 0 0 3px rgba(161, 156, 221, 0.16);
 }
 
 .textarea {
@@ -513,25 +507,26 @@ strong {
   cursor: pointer;
 }
 
-/* ─────────────────────────── cards ─────────────────────────── */
+/* ——————————————————————————— cards ——————————————————————————— */
 
+/* matte frosted panel —never pure-white plastic */
 .card {
   background: var(--surface);
   border: 1px solid var(--line-card);
-  border-radius: var(--r-lg);
+  border-radius: var(--r);
   box-shadow: var(--shadow-xs);
 }
 
 .glass-card {
   background: var(--glass);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: var(--r-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--r);
   box-shadow: var(--shadow-md);
 }
 
-/* ─────────────────────────── numbers (Loanza light numerals) ─────────────────────────── */
+/* ——————————————————————————— numbers (Loanza light numerals) ——————————————————————————— */
 
 .num {
   font-weight: 300;
@@ -539,7 +534,7 @@ strong {
   font-variant-numeric: tabular-nums;
 }
 
-/* ─────────────────────────── scroll reveal ─────────────────────────── */
+/* ——————————————————————————— scroll reveal ——————————————————————————— */
 
 .reveal {
   opacity: 0;
@@ -554,7 +549,7 @@ strong {
   transform: none;
 }
 
-/* ─────────────────────────── reduced motion ─────────────────────────── */
+/* ——————————————————————————— reduced motion ——————————————————————————— */
 
 @media (prefers-reduced-motion: reduce) {
   html {

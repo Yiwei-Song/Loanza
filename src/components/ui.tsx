@@ -783,25 +783,6 @@ export function Delta({ value, dir }: { value: string; dir: 'up' | 'down' }) {
   );
 }
 
-/** Browser-chrome frame for product mockups (the Loanza hero treatment). */
-export function BrowserFrame({ url, children }: { url: string; children: React.ReactNode }) {
-  return (
-    <div className="browser-frame">
-      <div className="browser-chrome">
-        <span className="browser-dots" aria-hidden="true">
-          <i /><i /><i />
-        </span>
-        <span className="browser-url">
-          <Icon name="lock" size={10} strokeWidth={2.2} />
-          {url}
-        </span>
-        <span className="browser-chrome-spacer" />
-      </div>
-      <div className="browser-body">{children}</div>
-    </div>
-  );
-}
-
 // ─────────────────────────── Field helpers ───────────────────────────
 
 export function Field({
