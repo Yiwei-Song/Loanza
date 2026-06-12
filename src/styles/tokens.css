@@ -1,0 +1,84 @@
+/* ───────────────────────────────────────────────
+   Circle Breaker — design tokens
+   Loanza-school: porcelain ground, lavender washes,
+   ink pills, pastel accents, fine tick-chart DNA
+   ─────────────────────────────────────────────── */
+
+:root {
+  /* surfaces */
+  --bg: #f1f0ee;
+  --bg-soft: #f6f5f3;
+  --surface: #ffffff;
+  --surface-tint: #f5f4f6;
+  --lavender: #e4e1f4;
+  --lavender-soft: #edebf8;
+  --glass: rgba(255, 255, 255, 0.66);
+
+  /* ink scale */
+  --ink: #1b1a1e;
+  --ink-2: #4c4a52;
+  --ink-3: #757379;
+  --muted: #9c9aa3;
+  --faint: #b5b3bc;
+
+  /* brand accents — Loanza pastel suite */
+  --violet: #8d85f0;
+  --violet-deep: #6a62de;
+  --violet-soft: #f0eefb;
+  --violet-ghost: #f5f4fd;
+  --green: #5fb37d;
+  --green-deep: #3e8f63;
+  --green-soft: #e9f5ee;
+  --orange: #ee7445;
+  --orange-deep: #d85b2b;
+  --orange-soft: #fcede4;
+  --gold: #f0c93e;
+  --gold-soft: #faf3da;
+
+  /* lines & shadows — Loanza barely uses either */
+  --line: rgba(27, 26, 30, 0.055);
+  --line-strong: rgba(27, 26, 30, 0.1);
+  --shadow-xs: 0 1px 2px rgba(27, 26, 30, 0.03);
+  --shadow-sm: 0 4px 16px -6px rgba(27, 26, 30, 0.07);
+  --shadow-md: 0 18px 44px -22px rgba(27, 26, 30, 0.16);
+  --shadow-lg: 0 30px 80px -30px rgba(50, 44, 90, 0.28);
+  --shadow-pop: 0 22px 56px -16px rgba(50, 44, 90, 0.22);
+
+  /* radii — generously rounded */
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 30px;
+  --r-pill: 999px;
+
+  /* type */
+  --font-sans: 'Poppins', 'Noto Sans SC Variable', 'PingFang SC', 'Microsoft YaHei',
+    system-ui, -apple-system, sans-serif;
+  --track-tight: -0.015em;
+  --track-snug: -0.005em;
+
+  /* layout */
+  --page-max: 1200px;
+  --page-pad: clamp(18px, 4vw, 40px);
+  --nav-h: 64px;
+
+  /* map */
+  --map-dot: #d8d5e4;
+  --map-dot-strong: #c8c4da;
+
+  /* tick charts */
+  --tick-rest: #e6e4ec;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --t-fast: 150ms;
+  --t-med: 280ms;
+  --t-slow: 600ms;
+}
+
+/* Chinese: no negative tracking — CJK glyphs need room to breathe */
+html[lang='zh-CN'] {
+  --track-tight: 0em;
+  --track-snug: 0em;
+}
