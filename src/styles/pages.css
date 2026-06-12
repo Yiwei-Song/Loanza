@@ -93,9 +93,9 @@
   display: grid;
   grid-template-columns: 1fr minmax(180px, 380px) 1fr;
   align-items: center;
-  padding: 12px 18px;
+  padding: 10px 16px;
   border-bottom: 1px solid var(--line);
-  background: var(--bg-soft);
+  background: var(--surface);
 }
 
 .browser-dots {
@@ -139,8 +139,9 @@
 }
 
 .browser-body {
-  padding: clamp(16px, 2.6vw, 26px);
+  padding: clamp(14px, 2.2vw, 22px);
   text-align: left;
+  background: var(--surface-dim);
 }
 
 /* workspace inside the frame */
@@ -149,7 +150,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .ws-brand {
@@ -207,8 +208,8 @@
 .ws-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(20px, 4vw, 56px);
-  padding: 4px 4px 18px;
+  gap: clamp(20px, 4vw, 52px);
+  padding: 2px 2px 14px;
 }
 
 .ws-stat {
@@ -221,7 +222,7 @@
   display: inline-flex;
   align-items: flex-start;
   gap: 7px;
-  font-size: clamp(30px, 3.6vw, 42px);
+  font-size: clamp(28px, 3.2vw, 38px);
   line-height: 1.05;
 }
 
@@ -237,14 +238,15 @@
 .ws-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(240px, 1fr);
-  gap: 14px;
+  gap: 12px;
 }
 
 .ws-map {
   position: relative;
-  background: linear-gradient(160deg, #efedf9 0%, #f7f6fb 100%);
-  border-radius: var(--r-lg);
-  padding: clamp(12px, 2vw, 22px);
+  background: var(--surface);
+  border: 1px solid var(--line-card);
+  border-radius: var(--r-md);
+  padding: clamp(12px, 2vw, 20px);
   overflow: hidden;
 }
 
@@ -329,14 +331,14 @@
 .ws-side {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .ws-card {
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-card);
   border-radius: var(--r-md);
-  padding: 14px 16px;
+  padding: 13px 15px;
   box-shadow: var(--shadow-xs);
 }
 
@@ -345,39 +347,45 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .ws-card-title {
   display: flex;
   flex-direction: column;
   gap: 1px;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--ink);
 }
 
 .ws-card-title small {
-  font-size: 10.5px;
+  font-size: 9.5px;
   font-weight: 400;
   color: var(--muted);
 }
 
-.ws-card-foot {
+/* Loanza stat anatomy: tiny grey label stacked ABOVE a big light number */
+.ws-pairs {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 26px;
+  margin-top: 9px;
 }
 
-.ws-card-num {
-  font-size: 27px;
-  line-height: 1;
+.ws-pair {
+  display: flex;
+  flex-direction: column;
 }
 
-.ws-card-unit {
-  font-size: 10.5px;
+.ws-pair-label {
+  font-size: 9.5px;
+  font-weight: 500;
   color: var(--muted);
+}
+
+.ws-pair-num {
+  font-size: 25px;
+  line-height: 1.15;
 }
 
 .ws-card-list .ws-card-head {
@@ -430,9 +438,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 7px;
-  padding: 14px 17px;
-  max-width: 235px;
+  gap: 6px;
+  padding: 12px 15px;
+  max-width: 230px;
   text-align: left;
   transition: transform var(--t-med) var(--ease-spring), box-shadow var(--t-med);
   animation: float-bob 7s ease-in-out infinite;
@@ -446,7 +454,7 @@
 
 .hero-float-0 {
   right: -26px;
-  top: 14%;
+  top: 30%;
   animation-delay: 0s;
 }
 
@@ -485,12 +493,12 @@
 .how-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 14px;
   margin-top: 34px;
 }
 
 .how-card {
-  padding: 28px;
+  padding: 24px;
   height: 100%;
   transition: transform var(--t-med) var(--ease-out), box-shadow var(--t-med);
 }
@@ -570,11 +578,11 @@
 }
 
 .lens-demo-panel {
-  padding: 12px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  border-radius: var(--r-xl);
+  gap: 2px;
+  border-radius: var(--r-lg);
 }
 
 .lens-demo-row {
@@ -663,7 +671,7 @@
 .res-teaser-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 14px;
   margin-top: 34px;
 }
 
@@ -867,12 +875,12 @@
 
 .filter-panel {
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-card);
   border-radius: var(--r-lg);
-  padding: 20px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 18px;
 }
 
 .filter-panel-head {
@@ -1121,7 +1129,7 @@ html[lang='zh-CN'] .filter-title {
 .opp-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
+  gap: 14px;
 }
 
 /* gallery card */
@@ -1129,7 +1137,7 @@ html[lang='zh-CN'] .filter-title {
 .opp-card {
   display: flex;
   flex-direction: column;
-  padding: 22px;
+  padding: 18px 20px;
   position: relative;
   transition: transform var(--t-med) var(--ease-out), box-shadow var(--t-med), border-color var(--t-med);
 }
@@ -1163,7 +1171,7 @@ html[lang='zh-CN'] .filter-title {
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .opp-chips {
@@ -1241,8 +1249,8 @@ html[lang='zh-CN'] .filter-title {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 16px;
-  padding-top: 15px;
+  margin-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid var(--line);
 }
 
@@ -1417,9 +1425,9 @@ html[lang='zh-CN'] .filter-title {
 
 .mapview {
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-card);
   border-radius: var(--r-lg);
-  padding: clamp(14px, 2.5vw, 30px);
+  padding: clamp(12px, 2vw, 20px);
 }
 
 .mapview-stage {
@@ -1720,10 +1728,10 @@ html[lang='zh-CN'] .filter-title {
 }
 
 .detail-facts {
-  padding: 24px;
+  padding: 20px;
   position: sticky;
   top: calc(var(--nav-h) + 16px);
-  border-radius: var(--r-xl);
+  border-radius: var(--r-lg);
 }
 
 .detail-facts h3 {
@@ -2154,13 +2162,13 @@ html[lang='zh-CN'] .req-card h4 {
 .res-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
+  gap: 14px;
 }
 
 .res-card {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 20px 22px;
   transition: transform var(--t-med) var(--ease-out), box-shadow var(--t-med);
   height: 100%;
 }
@@ -2316,22 +2324,22 @@ html[lang='zh-CN'] .req-card h4 {
 .dash-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-bottom: 22px;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
 .stat-card {
-  padding: 18px 20px;
+  padding: 14px 16px;
 }
 
-.stat-urgent .ws-card-num {
+.stat-urgent .ws-pair-num {
   color: var(--orange-deep);
 }
 
 .dash-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(290px, 1fr);
-  gap: 20px;
+  gap: 14px;
   align-items: start;
 }
 
@@ -2339,11 +2347,11 @@ html[lang='zh-CN'] .req-card h4 {
 .dash-col-side {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
 }
 
 .dash-section {
-  padding: 24px;
+  padding: 20px;
 }
 
 .dash-section h2,
@@ -2716,8 +2724,8 @@ html[lang='zh-CN'] .req-card h4 {
 }
 
 .set-card {
-  padding: clamp(20px, 3.5vw, 30px);
-  margin-bottom: 18px;
+  padding: clamp(18px, 3vw, 26px);
+  margin-bottom: 14px;
 }
 
 .set-card h2 {

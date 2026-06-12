@@ -78,10 +78,12 @@ export default function DashboardPage() {
               <Icon name="arrowUpRight" size={13} strokeWidth={2} />
             </Link>
           </div>
-          <TickBar accent="violet" seed={5} cluster={0.55} />
-          <div className="ws-card-foot">
-            <span className="ws-card-num num">{savedOpps.length}</span>
-            <span className="ws-card-unit">{t('dash.stat.saved')}</span>
+          <TickBar accent="violet" seed={5} cluster={0.55} scale={['0', '100']} />
+          <div className="ws-pairs">
+            <div className="ws-pair">
+              <span className="ws-pair-label">{t('dash.stat.saved')}</span>
+              <span className="ws-pair-num num">{savedOpps.length}</span>
+            </div>
           </div>
         </div>
         <div className={`card stat-card ${closingCount > 0 ? 'stat-urgent' : ''}`}>
@@ -94,10 +96,12 @@ export default function DashboardPage() {
               <Icon name="arrowUpRight" size={13} strokeWidth={2} />
             </Link>
           </div>
-          <TickBar accent="orange" seed={17} cluster={0.24} />
-          <div className="ws-card-foot">
-            <span className="ws-card-num num">{closingCount}</span>
-            <span className="ws-card-unit">{t('dash.stat.closing')}</span>
+          <TickBar accent="orange" seed={17} cluster={0.24} marker="orange" scale={['0', '100']} />
+          <div className="ws-pairs">
+            <div className="ws-pair">
+              <span className="ws-pair-label">{t('dash.stat.closing')}</span>
+              <span className="ws-pair-num num">{closingCount}</span>
+            </div>
           </div>
         </div>
         <div className="card stat-card">
@@ -110,10 +114,12 @@ export default function DashboardPage() {
               <Icon name="arrowUpRight" size={13} strokeWidth={2} />
             </Link>
           </div>
-          <TickBar accent="green" seed={29} cluster={0.78} />
-          <div className="ws-card-foot">
-            <span className="ws-card-num num">{recommended.length}</span>
-            <span className="ws-card-unit">{t('dash.stat.matches')}</span>
+          <TickBar accent="green" seed={29} cluster={0.78} scale={['0', '100']} />
+          <div className="ws-pairs">
+            <div className="ws-pair">
+              <span className="ws-pair-label">{t('dash.stat.matches')}</span>
+              <span className="ws-pair-num num">{recommended.length}</span>
+            </div>
           </div>
         </div>
       </div>

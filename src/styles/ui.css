@@ -400,7 +400,21 @@
   font-weight: 500;
 }
 
-/* ─────────────────────────── tick gauge ─────────────────────────── */
+/* ─────────────────────────── tick charts ─────────────────────────── */
+
+.tickbar {
+  width: 100%;
+}
+
+.tick-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
 
 .tick-gauge {
   position: relative;
@@ -409,9 +423,20 @@
   align-items: center;
 }
 
+.tick-gauge-ends {
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  margin-top: 3px;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
 .tick-gauge-text {
   position: absolute;
-  bottom: 0;
+  bottom: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -419,12 +444,12 @@
 }
 
 .tick-gauge-value {
-  font-size: 27px;
+  font-size: 26px;
   line-height: 1;
 }
 
 .tick-gauge-label {
-  font-size: 10.5px;
+  font-size: 10px;
   color: var(--muted);
 }
 

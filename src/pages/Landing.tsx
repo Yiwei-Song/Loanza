@@ -24,6 +24,7 @@ export default function LandingPage() {
   const total = OPPORTUNITIES.length;
   const openNow = useMemo(() => OPPORTUNITIES.filter((o) => isOpen(o.deadline)).length, []);
   const closingSoon = useMemo(() => OPPORTUNITIES.filter((o) => isClosingSoon(o.deadline)).length, []);
+  const rollingCount = useMemo(() => OPPORTUNITIES.filter((o) => !o.deadline).length, []);
   const cityCount = useMemo(() => {
     const set = new Set<string>();
     for (const o of OPPORTUNITIES) for (const l of o.locations) set.add(`${l.city}|${l.country}`);
@@ -176,10 +177,16 @@ export default function LandingPage() {
                           <Icon name="arrowUpRight" size={13} strokeWidth={2} />
                         </Link>
                       </div>
-                      <TickBar accent="green" seed={11} cluster={0.72} />
-                      <div className="ws-card-foot">
-                        <span className="ws-card-num num">{openNow}</span>
-                        <span className="ws-card-unit">{t('db.mode.open')}</span>
+                      <TickBar accent="green" seed={11} cluster={0.72} marker="green" scale={['0', '100']} />
+                      <div className="ws-pairs">
+                        <div className="ws-pair">
+                          <span className="ws-pair-label">{t('db.mode.open')}</span>
+                          <span className="ws-pair-num num">{openNow}</span>
+                        </div>
+                        <div className="ws-pair">
+                          <span className="ws-pair-label">{t('common.closed')}</span>
+                          <span className="ws-pair-num num">{total - openNow}</span>
+                        </div>
                       </div>
                     </div>
                     <div className="ws-card">
@@ -192,10 +199,16 @@ export default function LandingPage() {
                           <Icon name="arrowUpRight" size={13} strokeWidth={2} />
                         </Link>
                       </div>
-                      <TickBar accent="orange" seed={23} cluster={0.28} />
-                      <div className="ws-card-foot">
-                        <span className="ws-card-num num">{closingSoon}</span>
-                        <span className="ws-card-unit">{t('common.closingSoon')}</span>
+                      <TickBar accent="orange" seed={23} cluster={0.28} marker="orange" scale={['0', '100']} />
+                      <div className="ws-pairs">
+                        <div className="ws-pair">
+                          <span className="ws-pair-label">{t('common.closingSoon')}</span>
+                          <span className="ws-pair-num num">{closingSoon}</span>
+                        </div>
+                        <div className="ws-pair">
+                          <span className="ws-pair-label">{t('common.rolling')}</span>
+                          <span className="ws-pair-num num">{rollingCount}</span>
+                        </div>
                       </div>
                     </div>
                     <div className="ws-card ws-card-list">

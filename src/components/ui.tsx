@@ -631,11 +631,13 @@ function prand(seed: number, i: number): number {
  * bars with one accented cluster. Purely decorative — aria-hidden.
  */
 export function TickBar({
-  n = 42,
+  n = 48,
   seed = 7,
   accent = 'violet',
   cluster = 0.62,
-  height = 34,
+  height = 32,
+  scale,
+  marker,
   className,
 }: {
   n?: number;
@@ -643,14 +645,19 @@ export function TickBar({
   accent?: keyof typeof ACCENTS | 'multi';
   cluster?: number; // 0–1 position of the accent cluster
   height?: number;
+  /** tiny axis labels under the chart, e.g. ['0','100'] — Loanza signature */
+  scale?: [string, string];
+  /** small data-point dot floated above the cluster */
+  marker?: keyof typeof ACCENTS;
   className?: string;
 }) {
+  const pitch = 2.8;
   const bars = useMemo(() => {
     const out: { h: number; c: string }[] = [];
     const multi = ['var(--orange)', 'var(--green)', 'var(--violet)'];
     const clusterIdx = Math.floor(cluster * n);
     for (let i = 0; i < n; i++) {
-      const base = 0.25 + prand(seed, i) * 0.75;
+      const base = 0.22 + prand(seed, i) * 0.72;
       const nearCluster = Math.abs(i - clusterIdx) <= 2;
       const c =
         accent === 'multi'
@@ -660,31 +667,49 @@ export function TickBar({
           : nearCluster
             ? ACCENTS[accent]
             : 'var(--tick-rest)';
-      out.push({ h: nearCluster ? Math.max(base, 0.7) : base, c });
+      out.push({ h: nearCluster ? Math.max(base, 0.72) : base, c });
     }
     return out;
   }, [n, seed, accent, cluster]);
 
+  const clusterIdx = Math.floor(cluster * n);
+  const pad = marker ? 7 : 0;
+
   return (
-    <svg
-      viewBox={`0 0 ${n * 3} ${height}`}
-      preserveAspectRatio="none"
-      style={{ width: '100%', height }}
-      aria-hidden="true"
-      className={className}
-    >
-      {bars.map((b, i) => (
-        <rect
-          key={i}
-          x={i * 3}
-          y={height - b.h * height}
-          width={1.7}
-          height={b.h * height}
-          rx={0.85}
-          fill={b.c}
-        />
-      ))}
-    </svg>
+    <div className={`tickbar ${className ?? ''}`}>
+      <svg
+        viewBox={`0 0 ${n * pitch} ${height + pad}`}
+        preserveAspectRatio="none"
+        style={{ width: '100%', height: height + pad }}
+        aria-hidden="true"
+      >
+        {bars.map((b, i) => (
+          <rect
+            key={i}
+            x={i * pitch}
+            y={pad + (height - b.h * height)}
+            width={1.35}
+            height={b.h * height}
+            rx={0.65}
+            fill={b.c}
+          />
+        ))}
+        {marker && (
+          <circle
+            cx={clusterIdx * pitch + 0.7}
+            cy={pad + (height - bars[clusterIdx].h * height) - 4}
+            r={2.6}
+            fill={ACCENTS[marker]}
+          />
+        )}
+      </svg>
+      {scale && (
+        <div className="tick-scale" aria-hidden="true">
+          <span>{scale[0]}</span>
+          <span>{scale[1]}</span>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -705,7 +730,7 @@ export function TickGauge({
   label?: string;
   value?: string;
 }) {
-  const ticks = 44;
+  const ticks = 48;
   const filled = Math.round((Math.min(100, Math.max(0, percent)) / 100) * ticks);
   const cx = 100;
   const cy = 92;
@@ -728,12 +753,16 @@ export function TickGauge({
               x2={x2}
               y2={y2}
               stroke={i <= filled ? ACCENTS[accent] : 'var(--tick-rest)'}
-              strokeWidth={1.8}
+              strokeWidth={1.5}
               strokeLinecap="round"
             />
           );
         })}
       </svg>
+      <div className="tick-gauge-ends" aria-hidden="true">
+        <span>0</span>
+        <span>100</span>
+      </div>
       <div className="tick-gauge-text">
         <span className="tick-gauge-value num">{value ?? `${percent}%`}</span>
         {label && <span className="tick-gauge-label">{label}</span>}
